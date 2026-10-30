@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Register — Online Tagay</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/app.css"></head>
+<body data-mode="register"><main class="auth"><div class="glass">
+<a href="index.html" class="logo">🥂 Online Tagay</a><h1 style="margin-top:14px">Create account</h1><p class="muted" style="margin-bottom:18px">Join the virtual barkada.</p>
+<form id="f" novalidate>
+<label>Name</label><input name="name" autocomplete="name" required>
+<label>Email</label><input name="email" type="email" autocomplete="email" required>
+<label>Password</label><input name="password" type="password" autocomplete="new-password" required>
+<label>Confirm password</label><input name="confirm" type="password" autocomplete="new-password" required>
+<div class="check"><input type="checkbox" name="age" id="age" value="1"><label for="age">I am of legal drinking age where I live. I understand nobody is required to drink.</label></div>
+<button class="btn gold" type="submit" style="width:100%">Register</button></form>
+<p class="muted" style="margin-top:16px;text-align:center">Already have an account? <a href="login.html" style="color:var(--gold2)">Login</a></p>
+</div></main>
+<script src="/api/config.js"></script><script type="module" src="js/auth.js"></script></body></html>

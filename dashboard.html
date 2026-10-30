@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dashboard — Online Tagay</title><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/app.css"></head>
+<body><div class="wrap">
+<div class="top"><a href="dashboard.html" class="logo">🥂 Online Tagay</a>
+<div class="row"><span class="bell" title="Notifications">🔔<span class="badge" id="nb" hidden>0</span></span><button class="btn sm" id="logout">Logout</button></div></div>
+<div class="hero-d"><h1 id="hello">Welcome 🥂</h1>
+<div class="row"><button class="btn gold" id="openCreate">+ Create a Tagay Room</button><button class="btn" id="openJoin">Join with code</button></div></div>
+<section class="blk"><h2>My rooms</h2><div class="list" id="mine"></div></section>
+<section class="blk"><h2>Active public rooms</h2><div class="list" id="active"></div></section>
+</div>
+
+<dialog id="dCreate"><h2>Create a room</h2><form id="fCreate">
+<label>Room name</label><input name="name" maxlength="40" required>
+<label>Description</label><textarea name="desc" rows="2" maxlength="140"></textarea>
+<label>Visibility</label><select name="vis"><option value="public">Public (listed)</option><option value="private">Private (code only)</option></select>
+<label>Max participants (2–12)</label><input name="max" type="number" min="2" max="12" value="8" required>
+<div class="row"><button class="btn gold" type="submit">Create</button><button class="btn" type="button" data-close>Cancel</button></div></form></dialog>
+
+<dialog id="dJoin"><h2>Join a room</h2><form id="fJoin">
+<label>Room code</label><input name="code" maxlength="6" style="text-transform:uppercase;letter-spacing:4px" required>
+<div id="info" class="muted" style="margin-bottom:14px"></div>
+<div class="row"><button class="btn gold" type="submit">Find room</button><button class="btn" type="button" data-close>Cancel</button></div></form></dialog>
+
+<script src="/api/config.js"></script><script type="module" src="js/dashboard.js"></script></body></html>

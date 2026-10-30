@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Online Tagay — Good Friends. Great Conversations.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#4a0d1c;--burg:#7a1330;--black:#0b0507;--gold:#d9a441;--gold2:#f3d58a;--text:#f6ece3;--muted:#c9b3a8;--glass:rgba(255,255,255,.07);--line:rgba(217,164,65,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,sans-serif;color:var(--text);background:radial-gradient(1200px 600px at 80% -10%,var(--burg),transparent 60%),radial-gradient(900px 500px at -10% 30%,var(--wine),transparent 60%),var(--black);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.15}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:rgba(11,5,7,.65);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:'Playfair Display',serif;font-weight:800;font-size:1.3rem;color:var(--gold2)}
+.logo span{margin-right:6px}
+.nav-actions{display:flex;gap:10px}
+.btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:600;border:1px solid var(--gold);cursor:pointer;font-size:.95rem;transition:transform .2s,box-shadow .2s;font-family:inherit}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,164,65,.25)}
+.btn.gold{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#2a0a12;border:0}
+.btn.ghost{background:transparent;color:var(--gold2)}
+.hero{text-align:center;padding:90px 0 70px;position:relative}
+.hero h1{font-size:clamp(2.2rem,7vw,4.4rem);font-weight:800;max-width:850px;margin:0 auto 18px}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:600px;margin:0 auto 30px;color:var(--muted);font-size:1.1rem}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.glasses{font-size:4rem;margin-bottom:10px;display:flex;justify-content:center;gap:0}
+.glasses span{display:inline-block;animation:clink 2.6s ease-in-out infinite}
+.glasses span:first-child{transform-origin:bottom right}
+.glasses span:last-child{animation-delay:.05s;animation-direction:reverse}
+@keyframes clink{0%,100%{transform:rotate(-14deg) translateX(-6px)}50%{transform:rotate(8deg) translateX(4px)}}
+.spark{position:absolute;pointer-events:none;font-size:1.2rem;animation:rise 1.4s ease-out forwards}
+@keyframes rise{to{transform:translateY(-120px) scale(1.4);opacity:0}}
+section{padding:64px 0}
+.title{text-align:center;margin-bottom:38px}
+.title h2{font-size:clamp(1.7rem,4vw,2.6rem)}
+.title p{color:var(--muted);margin-top:8px}
+.grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:26px;backdrop-filter:blur(10px);transition:transform .25s,border-color .25s}
+.card:hover{transform:translateY(-5px);border-color:var(--gold)}
+.card .ic{font-size:2rem;margin-bottom:10px}
+.card h3{font-size:1.2rem;margin-bottom:6px;color:var(--gold2)}
+.card p{color:var(--muted);font-size:.95rem}
+.steps .num{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#2a0a12;font-weight:800;display:grid;place-items:center;margin-bottom:12px}
+.game{max-width:640px;margin:auto;text-align:center}
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.tab{padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--text);cursor:pointer;font-family:inherit}
+.tab.on{background:var(--gold);color:#2a0a12;border-color:var(--gold)}
+.qcard{min-height:170px;display:grid;place-items:center;font-family:'Playfair Display',serif;font-size:1.5rem;padding:30px;border-radius:26px;background:linear-gradient(145deg,rgba(122,19,48,.55),rgba(74,13,28,.55));border:1px solid var(--gold);margin-bottom:18px}
+.qcard.flip{animation:flip .45s}
+@keyframes flip{from{opacity:0;transform:rotateX(70deg) scale(.95)}to{opacity:1;transform:none}}
+.alt{color:var(--muted);font-size:.9rem;margin-top:12px}
+footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--muted);font-size:.9rem}
+footer .links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+footer a:hover{color:var(--gold2)}
+@media(max-width:520px){.nav-actions .btn{padding:9px 14px;font-size:.85rem}.hero{padding-top:60px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a href="#top" class="logo"><span>🥂</span>Online Tagay</a>
+  <div class="nav-actions">
+    <a class="btn ghost" href="login.html">Login</a>
+    <a class="btn gold" href="register.html">Register</a>
+  </div>
+</div></nav>
+
+<header class="hero wrap" id="top">
+  <div class="glasses" aria-hidden="true"><span>🥃</span><span>🍷</span></div>
+  <h1>Good Friends. Great Conversations. <em>One Virtual Tagay.</em></h1>
+  <p>Create a room, share the code, and raise a glass with your barkada — chat, video call, and play party games together, no matter how far apart you are.</p>
+  <div class="cta">
+    <a class="btn gold" href="register.html" id="start">Get Started</a>
+    <a class="btn ghost" href="join.html">Join a Room</a>
+  </div>
+</header>
+
+<section id="features"><div class="wrap">
+  <div class="title"><h2>Everything for the perfect hangout</h2><p>Simple to use. Made for barkadas.</p></div>
+  <div class="grid">
+    <div class="card"><div class="ic">🏠</div><h3>Private & Public Rooms</h3><p>Create a room with a unique code, set a limit, and stay in control as host.</p></div>
+    <div class="card"><div class="ic">💬</div><h3>Live Group Chat</h3><p>Real-time messages, emojis, and typing indicators with your whole group.</p></div>
+    <div class="card"><div class="ic">📹</div><h3>Video & Audio Calls</h3><p>Peer-to-peer calls with mic and camera controls built right in.</p></div>
+    <div class="card"><div class="ic">🥂</div><h3>Virtual Cheers</h3><p>Clink glasses, send reactions, and watch the celebration effects fly.</p></div>
+    <div class="card"><div class="ic">🎲</div><h3>Party Games</h3><p>Truth or Dare, Never Have I Ever, Most Likely To and more.</p></div>
+    <div class="card"><div class="ic">🛡️</div><h3>Safe by Design</h3><p>Report, block, and moderate. Nobody is ever required to drink.</p></div>
+  </div>
+</div></section>
+
+<section id="how"><div class="wrap">
+  <div class="title"><h2>How it works</h2></div>
+  <div class="grid steps">
+    <div class="card"><div class="num">1</div><h3>Sign up</h3><p>Create your free account and set up your profile.</p></div>
+    <div class="card"><div class="num">2</div><h3>Create or join</h3><p>Start a room or enter a friend's room code.</p></div>
+    <div class="card"><div class="num">3</div><h3>Invite the barkada</h3><p>Share your invite link through any messaging app.</p></div>
+    <div class="card"><div class="num">4</div><h3>Tagay!</h3><p>Chat, call, play games, and cheers together.</p></div>
+  </div>
+</div></section>
+
+<section id="games"><div class="wrap">
+  <div class="title"><h2>Try a game right now</h2><p>A taste of what's waiting inside the room.</p></div>
+  <div class="game">
+    <div class="tabs" id="tabs"></div>
+    <div class="qcard" id="qcard">Pick a game to start</div>
+    <div class="cta">
+      <button class="btn gold" id="next">Next Question</button>
+      <button class="btn ghost" id="cheers">🥂 Cheers!</button>
+    </div>
+    <p class="alt">Every game works with a virtual drink or a non-alcoholic alternative. 🧃</p>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="links">
+    <a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a>
+  </div>
+  <p>🥂 Online Tagay · For adults of legal drinking age only. Drink responsibly — or don't drink at all.</p>
+</div></footer>
+
+<script>
+const GAMES={
+  "Truth or Dare":["Truth: What's the most embarrassing thing in your phone gallery?","Dare: Do your best impression of someone in the room.","Truth: Who in this group would you trust with your biggest secret?","Dare: Send a heart emoji to the 5th person in your chat list."],
+  "Never Have I Ever":["Never have I ever sent a text to the wrong person.","Never have I ever fallen asleep during a video call.","Never have I ever pretended to know a song's lyrics.","Never have I ever cried during a movie."],
+  "Most Likely To":["Who is most likely to be late to their own birthday?","Who is most likely to become famous?","Who is most likely to get lost with GPS on?","Who is most likely to adopt ten cats?"],
+  "Would You Rather":["Would you rather always be 10 minutes late or 20 minutes early?","Would you rather lose your phone or your wallet for a week?","Would you rather sing everything or dance everywhere?","Would you rather have unlimited pancit or unlimited lechon?"]
+};
+const tabs=document.getElementById('tabs'),card=document.getElementById('qcard');
+let cur=null,last=-1;
+Object.keys(GAMES).forEach(g=>{const b=document.createElement('button');b.className='tab';b.textContent=g;b.onclick=()=>{cur=g;[...tabs.children].forEach(t=>t.classList.toggle('on',t===b));show()};tabs.appendChild(b)});
+function show(){
+  if(!cur){card.textContent='Pick a game to start';return}
+  const list=GAMES[cur];let i;do{i=Math.floor(Math.random()*list.length)}while(i===last&&list.length>1);last=i;
+  card.textContent=list[i];card.classList.remove('flip');void card.offsetWidth;card.classList.add('flip');
+}
+document.getElementById('next').onclick=()=>{if(!cur)tabs.firstChild.click();else show()};
+document.getElementById('cheers').onclick=e=>{
+  const em=['🥂','✨','🍷','🎉','⭐'];
+  for(let i=0;i<10;i++){
+    const s=document.createElement('span');s.className='spark';s.textContent=em[i%em.length];
+    s.style.left=(e.clientX+(Math.random()*120-60))+'px';s.style.top=(e.clientY+window.scrollY-10)+'px';
+    s.style.position='absolute';s.style.zIndex=50;document.body.appendChild(s);setTimeout(()=>s.remove(),1500);
+  }
+};
+</script>
+</body>
+</html>
