@@ -1,30 +1,14 @@
-
-// Vercel Serverless Function
+// Vercel serverless function: exposes Firebase WEB config from environment variables.
+// (Firebase web config is not secret; security comes from Auth + Firestore Rules.)
 module.exports = (req, res) => {
+  const e = process.env;
   const cfg = {
-    apiKey: process.env.FIREBASE_API_KEY,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.FIREBASE_APP_ID
+    apiKey: e.FIREBASE_API_KEY, authDomain: e.FIREBASE_AUTH_DOMAIN,
+    projectId: e.FIREBASE_PROJECT_ID, storageBucket: e.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: e.FIREBASE_MESSAGING_SENDER_ID, appId: e.FIREBASE_APP_ID
   };
-
-  const missing = Object.entries(cfg)
-    .filter(([key, value]) => !value)
-    .map(([key]) => key);
-
-  if (missing.length > 0) {
-    return res.status(500).json({
-      error: "Firebase configuration is incomplete",
-      missing
-    });
-  }
-
-  res.setHeader("Content-Type", "application/javascript");
-  res.setHeader("Cache-Control", "no-store");
-
-  res.status(200).send(
-    "window.__FB = " + JSON.stringify(cfg) + ";"
-  );
+  res.setHeader('Content-Type', 'application/javascript');
+  res.setHeader('Cache-Control', 'no-store');
+  res.send('window.__FB=' + JSON.stringify(cfg) + ';');
 };
+
